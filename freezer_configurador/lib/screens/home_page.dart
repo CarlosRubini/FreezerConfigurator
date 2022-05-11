@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:freezer_configurador/widgets/menu_options.dart';
+import 'equipment/equipment_view.dart';
 
 class MonitoramentoPage extends StatefulWidget {
   const MonitoramentoPage({Key? key}) : super(key: key);
@@ -14,46 +16,39 @@ class _MonitoramentoPageState extends State<MonitoramentoPage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.list,
-                size: 35,
-              ),
-              tooltip: 'Configurações',
-              onPressed: () {
-                // handle the press
-              },
-            ),
-          ],
+          actions: const [MenuOpcoes()],
           title: const Text("BeCooler"),
-          bottom: TabBar(controller: _tabController, tabs: const <Widget>[
-            Tab(
-              text: "Freezer 1",
-            ),
-            Tab(
-              text: "Freezer 2",
-            ),
-            Tab(
-              text: "Freezer 3",
-            ),
-            Tab(
-              text: "Freezer 4",
-            ),
-          ])),
+          bottom: TabBar(
+              controller: _tabController,
+              isScrollable: true,
+              tabs: const <Widget>[
+                Tab(
+                  text: "Freezer 1",
+                ),
+                Tab(
+                  text: "Freezer 2",
+                ),
+                Tab(
+                  text: "Freezer 3",
+                ),
+                Tab(
+                  text: "Freezer 4",
+                ),
+                Tab(
+                  icon: Icon(Icons.add),
+                )
+              ])),
       body: TabBarView(
         controller: _tabController,
         children: const <Widget>[
-          Center(
-            child: Text("It's cloudy here"),
-          ),
+          EquipamentoView(),
           Center(
             child: Text("It's rainy here"),
           ),
@@ -63,6 +58,7 @@ class _MonitoramentoPageState extends State<MonitoramentoPage>
           Center(
             child: Text("It's sunny here"),
           ),
+          Center(child: Text("Cadastro"))
         ],
       ),
     );

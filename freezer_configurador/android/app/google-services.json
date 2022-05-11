@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "496114470027",
+    "project_id": "becooler-dc222",
+    "storage_bucket": "becooler-dc222.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496114470027:android:c70a2b3558ab89c9e5588e",
+        "android_client_info": {
+          "package_name": "com.example.freezer_configurador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496114470027-qhn7993d0kuj4ke3qqko5s15qasjq1eg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO0HqzYTEqLJGLeWCCkrEwXkHLuHIEYus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "496114470027-qhn7993d0kuj4ke3qqko5s15qasjq1eg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezer_configurador/widgets/menu_options.dart';
 import 'equipment/equipment_view.dart';
+import 'equipment_form/equipment_form.dart';
 
 class MonitoramentoPage extends StatefulWidget {
   const MonitoramentoPage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _MonitoramentoPageState extends State<MonitoramentoPage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -36,12 +37,6 @@ class _MonitoramentoPageState extends State<MonitoramentoPage>
                   text: "Freezer 2",
                 ),
                 Tab(
-                  text: "Freezer 3",
-                ),
-                Tab(
-                  text: "Freezer 4",
-                ),
-                Tab(
                   icon: Icon(Icons.add),
                 )
               ])),
@@ -49,16 +44,8 @@ class _MonitoramentoPageState extends State<MonitoramentoPage>
         controller: _tabController,
         children: const <Widget>[
           EquipamentoView(),
-          Center(
-            child: Text("It's rainy here"),
-          ),
-          Center(
-            child: Text("It's sunny here"),
-          ),
-          Center(
-            child: Text("It's sunny here"),
-          ),
-          Center(child: Text("Cadastro"))
+          EquipamentoView(),
+          EquipamentoCadastro()
         ],
       ),
     );

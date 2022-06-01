@@ -18,7 +18,7 @@ class EquipamentoCadastro extends StatelessWidget {
                 borderOnForeground: true,
                 child: SizedBox(
                   width: double.infinity,
-                  height: 500,
+                  height: 340,
                   child: Column(
                     children: [
                       Row(

@@ -25,7 +25,13 @@ class _MonitoramentoPageState extends State<MonitoramentoPage>
     return Scaffold(
       appBar: AppBar(
           actions: const [MenuOpcoes()],
-          title: const Text("BeCooler"),
+          title: Row(children: const [
+            Image(
+              height: 50,
+              image: AssetImage('assets/images/BeCooler.png'),
+            ),
+            Text("BeCooler"),
+          ]),
           bottom: TabBar(
               controller: _tabController,
               isScrollable: true,

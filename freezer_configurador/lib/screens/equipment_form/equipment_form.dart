@@ -60,7 +60,7 @@ class EquipamentoCadastro extends StatelessWidget {
                             child: TextBox(
                               width: MediaQuery.of(context).size.width - 50,
                               controller: TextEditingController(),
-                              hintText: 'Tópico',
+                              hintText: 'Tópico MQTT',
                             ),
                           )
                         ],

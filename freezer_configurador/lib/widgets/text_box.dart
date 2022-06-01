@@ -26,7 +26,8 @@ class TextBox extends StatelessWidget {
   final Iterable<String>? autofillHints;
 
   const TextBox(
-      {required this.hintText,
+      {Key? key,
+      required this.hintText,
       this.isPassword = false,
       this.autoFocus = false,
       this.focusNode,
@@ -47,7 +48,8 @@ class TextBox extends StatelessWidget {
       this.inputFormatters,
       this.textAlign = TextAlign.start,
       this.onEditingComplete,
-      this.autofillHints});
+      this.autofillHints})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +72,13 @@ class TextBox extends StatelessWidget {
               if (onTap != null) onTap!();
               return;
             },
-            decoration:
-                InputDecoration(hintText: hintText, labelText: hintText),
+            decoration: InputDecoration(
+              hintText: hintText,
+              labelText: hintText,
+              border: const OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue, width: 2.0),
+              ),
+            ),
             onEditingComplete: () {
               if (onEditingComplete != null) {
                 onEditingComplete!();

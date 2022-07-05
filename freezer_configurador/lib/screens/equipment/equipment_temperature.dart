@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../models/equipment/equipment.dart';
+
 class TemperaturaEquipamento extends StatelessWidget {
-  const TemperaturaEquipamento({Key? key}) : super(key: key);
+  final Equipment equipment;
+  const TemperaturaEquipamento({Key? key, required this.equipment})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +30,10 @@ class TemperaturaEquipamento extends StatelessWidget {
                   margin: const EdgeInsets.all(15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
+                    children: [
                       Text(
-                        "5ºC",
-                        style: TextStyle(
+                        "${equipment.temperature}ºC",
+                        style: const TextStyle(
                             fontSize: 35, fontWeight: FontWeight.bold),
                       ),
                     ],

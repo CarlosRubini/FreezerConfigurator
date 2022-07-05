@@ -80,9 +80,7 @@ class TextBox extends StatelessWidget {
               ),
             ),
             onEditingComplete: () {
-              if (onEditingComplete != null) {
-                onEditingComplete!();
-              }
+              if (onEditingComplete != null) onEditingComplete!();
             },
             textAlign: textAlign,
             keyboardType: textInputType,
@@ -92,10 +90,10 @@ class TextBox extends StatelessWidget {
             focusNode: focusNode,
             controller: controller,
             onChanged: (String term) {
-              onChanged!(term);
+              if (onChanged != null) onChanged!(term);
             },
             onFieldSubmitted: (String term) {
-              onSubmitted!(term);
+              if (onSubmitted != null) onSubmitted!(term);
             },
             maxLines: maxLines,
           ),

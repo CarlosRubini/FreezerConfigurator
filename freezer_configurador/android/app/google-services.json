@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "496114470027",
-    "project_id": "becooler-dc222",
-    "storage_bucket": "becooler-dc222.appspot.com"
+    "project_number": "785638905644",
+    "project_id": "freezer-configurator",
+    "storage_bucket": "freezer-configurator.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:496114470027:android:c70a2b3558ab89c9e5588e",
+        "mobilesdk_app_id": "1:785638905644:android:b7419d4dae726427783e89",
         "android_client_info": {
           "package_name": "com.example.freezer_configurador"
         }
       },
       "oauth_client": [
         {
-          "client_id": "496114470027-qhn7993d0kuj4ke3qqko5s15qasjq1eg.apps.googleusercontent.com",
+          "client_id": "785638905644-oq1bjbrb0aqc3e2jo4rn4iepdlequv2u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDO0HqzYTEqLJGLeWCCkrEwXkHLuHIEYus"
+          "current_key": "AIzaSyCQAD8PX1IVSiBDl3zJw5tLKW-P8YV1Gms"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "496114470027-qhn7993d0kuj4ke3qqko5s15qasjq1eg.apps.googleusercontent.com",
+              "client_id": "785638905644-oq1bjbrb0aqc3e2jo4rn4iepdlequv2u.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

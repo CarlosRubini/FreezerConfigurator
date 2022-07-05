@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:freezer_configurador/helpers.dart';
+import 'package:freezer_configurador/models/equipment/equipment.dart';
 import 'package:freezer_configurador/screens/about.dart';
 import 'package:freezer_configurador/screens/configuration.dart';
 import 'package:freezer_configurador/screens/equipments.dart';
-import 'package:freezer_configurador/screens/reports.dart';
 
 class MenuOpcoes extends StatelessWidget {
-  const MenuOpcoes({Key? key}) : super(key: key);
+  final List<Equipment> equipments;
+  const MenuOpcoes({Key? key, required this.equipments}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +21,6 @@ class MenuOpcoes extends StatelessWidget {
               const PopupMenuItem<OpcoesMenu>(
                 value: OpcoesMenu.configuracoes,
                 child: Text("Configuracoes"),
-              ),
-              const PopupMenuItem<OpcoesMenu>(
-                value: OpcoesMenu.relatorios,
-                child: Text("Relatórios"),
               ),
               const PopupMenuItem<OpcoesMenu>(
                 value: OpcoesMenu.equipamentos,
@@ -42,9 +39,6 @@ class MenuOpcoes extends StatelessWidget {
       case OpcoesMenu.configuracoes:
         navigateTo(context, const ConfiguracaoGeralPage());
         break;
-      case OpcoesMenu.relatorios:
-        navigateTo(context, const RelatoriosPage());
-        break;
       case OpcoesMenu.equipamentos:
         navigateTo(context, const EquipamentosPage());
         break;
@@ -55,4 +49,4 @@ class MenuOpcoes extends StatelessWidget {
   }
 }
 
-enum OpcoesMenu { configuracoes, relatorios, equipamentos, sobre }
+enum OpcoesMenu { configuracoes, equipamentos, sobre }

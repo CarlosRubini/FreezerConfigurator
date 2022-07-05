@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../models/equipment/equipment.dart';
+
 class EquipamentoInformacoes extends StatelessWidget {
-  const EquipamentoInformacoes({Key? key}) : super(key: key);
+  final Equipment equipment;
+  const EquipamentoInformacoes({Key? key, required this.equipment})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,24 +18,14 @@ class EquipamentoInformacoes extends StatelessWidget {
           height: 80,
           child: Stack(
             children: [
-              Column(children: [
-                Container(
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.fromLTRB(15, 10, 5, 5),
-                    child: const Text(
-                      "Temperatura Ideal: -6°C",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    )),
-                Container(
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.fromLTRB(15, 5, 0, 10),
-                    child: const Text(
-                      "Tempo restante: 15min",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    )),
-              ]),
+              Container(
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.fromLTRB(15, 10, 5, 5),
+                  child: Text(
+                    "Temperatura Ideal: ${equipment.idealTemperature}°C",
+                    style: const TextStyle(
+                        fontSize: 23, fontWeight: FontWeight.bold),
+                  )),
               Container(
                   alignment: Alignment.centerRight,
                   padding: const EdgeInsets.fromLTRB(0, 10, 20, 5),

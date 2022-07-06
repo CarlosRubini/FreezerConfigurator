@@ -27,8 +27,7 @@ class _EquipamentoViewState extends State<EquipamentoView> {
   String? clientIdentifier;
   MqttConnectionState? connectionState;
   StreamSubscription? subscription;
-  MqttServerClient client =
-      MqttServerClient("broker.hivemq.com", "configurador");
+  MqttServerClient client = MqttServerClient("128.199.5.129", "configurador");
 
   _EquipamentoViewState({required this.equipment});
 
@@ -58,7 +57,7 @@ class _EquipamentoViewState extends State<EquipamentoView> {
 
   void subscribeToTopic(String topic) {
     if (connectionState == MqttConnectionState.connected) {
-      client.subscribe("appcaduteste1234", MqttQos.exactlyOnce);
+      client.subscribe("leitura_sensor", MqttQos.exactlyOnce);
     }
   }
 
@@ -84,21 +83,20 @@ class _EquipamentoViewState extends State<EquipamentoView> {
     EquipmentTemperatureRepository().setHistory(
         equipment: EquipmentTemperature(
             equipment.id, equipment.temperature, DateTime.now()));
-    publishOnOffMessage();
+    //publishOnOffMessage();
   }
 
   void publishOnOffMessage() {
     MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
     if (equipment.temperature >= equipment.idealTemperature) {
-      builder.addString("L");
+      builder.addString("LIGAR_COOLER");
       equipment.onOff = true;
     } else {
-      builder.addString("D");
+      builder.addString("DESLIGAR_COOLER");
       equipment.onOff = false;
     }
 
-    client.publishMessage(
-        "appcaduteste123liga", MqttQos.exactlyOnce, builder.payload!,
+    client.publishMessage("liga_cooler", MqttQos.exactlyOnce, builder.payload!,
         retain: true);
     EquipmentRepository().setEquipment(equipment: equipment);
   }
@@ -116,7 +114,7 @@ class _EquipamentoViewState extends State<EquipamentoView> {
 
     client.connectionMessage = connMess;
     try {
-      await client.connect("gCSNDyNMo9dw9ETuKpYM");
+      await client.connect("teste", "12345678@");
     } catch (e) {
       disconnect();
     }
@@ -128,6 +126,6 @@ class _EquipamentoViewState extends State<EquipamentoView> {
     }
 
     subscription = client.updates!.listen(onMessage);
-    subscribeToTopic("appcaduteste1234");
+    subscribeToTopic("leitura_sensor");
   }
 }

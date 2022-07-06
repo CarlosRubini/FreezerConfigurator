@@ -73,19 +73,17 @@ class EquipamentoBotoes extends StatelessWidget {
     MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
     builder.addString(equipment.idealTemperature.toString());
 
-    client.publishMessage(
-        "appcaduteste123", MqttQos.exactlyOnce, builder.payload!,
+    client.publishMessage("temperatura", MqttQos.exactlyOnce, builder.payload!,
         retain: true);
     EquipmentRepository().setEquipment(equipment: equipment);
   }
 
   void publishMqttOnOffMessage() {
     MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
-    builder.addString(equipment.onOff ? "D" : "L");
+    builder.addString(equipment.onOff ? "DESLIGAR_COOLER" : "LIGAR_COOLER");
     equipment.onOff = !equipment.onOff;
 
-    client.publishMessage(
-        "appcaduteste123liga", MqttQos.exactlyOnce, builder.payload!,
+    client.publishMessage("liga_cooler", MqttQos.exactlyOnce, builder.payload!,
         retain: true);
     EquipmentRepository().setEquipment(equipment: equipment);
   }
